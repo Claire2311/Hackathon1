@@ -59,15 +59,15 @@ function ChoixVehicule() {
           src="../src/assets/Images/fresque.jpg"
           alt="foule derrière un carrosse avec chevaux"
         />
-        <div className="flex flex-col m-5 md:flex-row">
+        <div className="flex flex-col m-5">
           <details className="dropdown">
-            <summary className="m-1 btn bg-blue text-almostWhite text-xl hover:bg-brown">
-              Filtres et tri
+            <summary className="m-1 btn bg-blue font-normal text-almostWhite text-xl hover:bg-brown md:w-64">
+              Filtres
             </summary>
-            <div className="p-2 shadow menu dropdown-content z-[1] bg-blue rounded-box w-52 h-96 overflow-scroll">
-              <div className="w-1/6 text-almostWhite  m-5">
+            <div className="p-2 shadow menu dropdown-content z-[1] bg-blue rounded-box w-72 h-80 overflow-scroll">
+              <div className="w-64 text-almostWhite m-1">
                 <div>
-                  <p className="font-sans text-2xl my-5">Moteur</p>
+                  <p className="font-sans text-2xl mt-2 mb-5">Moteur</p>
                   <button
                     value="Cheval"
                     className={`w-28 rounded-lg font-mono text-lg p-2 m-2  border border-blue hover:bg-brown hover:scale-105 hover:text-almostWhite active:scale-75 
@@ -177,31 +177,29 @@ function ChoixVehicule() {
                     Serf
                   </button>
                 </div>
-                <div>
+                <div className="flex justify-center">
                   <button
                     onClick={resetFilters}
-                    className="w-28 m-2 rounded-lg p-2 border font-mono text-lg border-blue bg-almostWhite text-blue hover:bg-brown active:scale-75 hover:text-almostWhite hover:scale-105"
+                    className="w-48 m-2 rounded-lg p-2 border font-mono text-lg border-blue bg-almostWhite text-brown hover:bg-brown active:scale-75 hover:text-almostWhite hover:scale-105"
                   >
                     Réinitialiser filtres
                   </button>
                 </div>
-
-                <select
-                  onChange={handleTri}
-                  className="bg-almostWhite text-blue pl-2 p-1 font-mono"
-                >
-                  <option value="tri">Trier les véhicules</option>
-                  <option value="prixCroissant">Par prix croissant</option>
-                  <option value="prixDécroissant">Par prix décroissant</option>
-                  <option value="duréeCroissante">Par durée croissante</option>
-                  <option value="duréeDécroissante">
-                    Par durée décroissante
-                  </option>
-                </select>
               </div>
             </div>
           </details>
-          <div className="flex flex-col md:flex-row md:w-5/6 md:p-8 overflow-hidden flex-wrap justify-center items-center">
+
+          <select
+            onChange={handleTri}
+            className="bg-almostWhite text-blue pl-2 p-1 font-sans text-right -mt-12 text-2xl"
+          >
+            <option value="tri">Trier les véhicules</option>
+            <option value="prixCroissant">Par prix croissant</option>
+            <option value="prixDécroissant">Par prix décroissant</option>
+            <option value="duréeCroissante">Par durée croissante</option>
+            <option value="duréeDécroissante">Par durée décroissante</option>
+          </select>
+          <div className="flex flex-col md:flex-row md:w-5/6 overflow-hidden flex-wrap justify-center items-center">
             {vehiclesData.length > 0 &&
               vehiclesData
                 .filter((elem) => moteur === null || elem.moteur === moteur)
