@@ -22,9 +22,6 @@ function ChoixVehicule() {
     window.scrollTo(0, 0);
   }, []);
 
-  if (vehiclesData.length > 0) {
-    console.log(vehiclesData);
-  }
   const km = parseInt(localStorage.getItem("distance"), 10);
 
   const handleClickMoteur = (e) => {
